@@ -1,0 +1,9 @@
+.sfdx/tools/248/apex.db
+.sfdx
+login.txt
+force-app/main/default/lwc/jsconfig.json
+.sf/orgs
+.forceignore
+sfdx-project.json
+.sf/config.json
+config/project-scratch-def.json
