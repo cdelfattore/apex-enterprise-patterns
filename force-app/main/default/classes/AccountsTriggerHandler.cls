@@ -28,7 +28,7 @@ public with sharing class AccountsTriggerHandler extends fflib_SObjectDomain
 
 	public override void onValidate(Map<Id,SObject> existingRecords)
 	{
-		// Validate changes to OpportunityTriggerHandler
+		// Validate changes to AccountsTriggerHandler
 	}
 
 	public override void onAfterInsert()
@@ -46,7 +46,7 @@ public with sharing class AccountsTriggerHandler extends fflib_SObjectDomain
 	{
 		public fflib_SObjectDomain construct(List<SObject> sObjectList)
 		{
-			return new OpportunitiesTriggerHandler(sObjectList);
+			return new AccountsTriggerHandler(sObjectList);
 		}
 	}
 }
