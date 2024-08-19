@@ -13,7 +13,7 @@ public class Accounts extends fflib_SObjectDomain
 	 * @param recordList 
 	 * @return  `IAccounts`
 	 */
-    public static IAccounts newInstance(List<Account> recordList)
+	public static IAccounts newInstance(List<Account> recordList)
 	{
 		return (IAccounts) Application.Domain.newInstance(recordList);
 	}
@@ -22,16 +22,16 @@ public class Accounts extends fflib_SObjectDomain
 	 * @description
 	 * @param sObjectList 
 	 */
-    public Accounts(List<Account> sObjectList)
+	public Accounts(List<Account> sObjectList)
 	{
 		super(sObjectList, Schema.Account.SObjectType);
 	}
 
-    /**
-     * @description Use the getRecords method from the fflib_SObjectDomain class to retrieve the Account records that are a part of this domain.
-     * @return  `List<Account>`
-     */
-    public List<Account> getAccounts()
+	/**
+	* @description Use the getRecords method from the fflib_SObjectDomain class to retrieve the Account records that are a part of this domain.
+	* @return  `List<Account>`
+	*/
+	public List<Account> getAccounts()
 	{
 		return (List<Account>) getRecords();
 	}
