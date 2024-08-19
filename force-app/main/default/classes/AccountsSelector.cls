@@ -31,5 +31,9 @@ public class AccountsSelector extends fflib_SObjectSelector
 	{
 		return (List<Account>) selectSObjectsById(idSet);
 	}
+
+	public List<Account> selectByNumberOf(Integer numberOfAccounts)
+	{
 		
+	}		
 }
