@@ -7,3 +7,4 @@ force-app/main/default/lwc/jsconfig.json
 sfdx-project.json
 .sf/config.json
 config/project-scratch-def.json
+apex-documentation
