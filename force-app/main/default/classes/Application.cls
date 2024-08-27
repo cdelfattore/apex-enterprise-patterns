@@ -27,7 +27,7 @@ public class Application
 	public static final fflib_Application.ServiceFactory Service = 
 		new fflib_Application.ServiceFactory( 
 			new Map<Type, Type> {
-					// IAccountsService.class => AccountsServiceImpl.class,
+					IAccountsService.class => AccountsServiceImpl.class
 					// IOpportunitiesService.class => OpportunitiesServiceImpl.class,
 					// IInvoicingService.class => InvoicingServiceImpl.class
                 });
@@ -36,7 +36,8 @@ public class Application
 	public static final fflib_Application.SelectorFactory Selector = 
 		new fflib_Application.SelectorFactory(
 			new Map<SObjectType, Type> {
-					Account.SObjectType => AccountsSelector.class
+					Account.SObjectType => AccountsSelector.class,
+					Contact.SObjectType => ContactsSelector.class
 					// Opportunity.SObjectType => OpportunitiesSelector.class,
 					// OpportunityLineItem.SObjectType => OpportunityLineItemsSelector.class,
 					// PricebookEntry.SObjectType => PricebookEntriesSelector.class,

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Apex Documentation</title>
+    <meta charset="UTF-8">
+    <script type="module" src="./assets/index.js"></script>
+    <script type="module" src="./assets/search-idx.js"></script>
+    <script type="module" src="./assets/search.js"></script>
+    <script charset="UTF-8" src="./assets/highlight.js"></script>
+    <script charset="UTF-8" src="./assets/mark.js"></script>
+    <script charset="UTF-8" src="./assets/lunr.js"></script>
+    <link rel="stylesheet" href="./assets/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/index.css" />
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon.png" />
+  </head>
+
+  <body>
+    <div id="side-bar">
+
+      <div id="logo-container">
+        <div class="title">
+          Apex Documentation
+        </div>
+        <img src="assets/logo.png" />
+        <div class="subtitle">
+          Powered by <a target="_blank" rel="noopener noreferrer" href="https://github.com/no-stack-dub-sack/apexdox-vs-code">ApexDox VS Code</a>
+        </div>
+      </div>
+      <div id="search-wrapper">
+        <div class="search-icon"></div>
+        <input id="search-input" type="text" autocomplete="off" placeholder="Search...">
+      </div>
+      <ul id="search-results" class=""></ul>
+      <div class="navbar">
+        <nav role="navigation">
+          <a class="nav-header" id="home" href="javascript:void(0)" onclick="goToLocation('index.html');">
+            Home
+          </a>
+          <details id="Controller" class="group-name">
+            <summary id="header-Controller" class="nav-header">
+              <span>Controller</span>
+            </summary>
+            <ul>
+              <!-- menu items -->
+              <li title="ContactsByAccountController" id="item-ContactsByAccountController" class="nav-item class public" onclick="goToLocation('ContactsByAccountController.html');">
+                <a tabindex="1" href="javascript:void(0)">ContactsByAccountController</a>
+              </li>
+            </ul>
+          </details>
+          <details id="Domain" class="group-name">
+            <summary id="header-Domain" class="nav-header">
+              <span>Domain</span>
+            </summary>
+            <ul>
+              <!-- menu items -->
+              <li title="Accounts" id="item-Accounts" class="nav-item class public" onclick="goToLocation('Accounts.html');">
+                <a tabindex="1" href="javascript:void(0)">Accounts</a>
+              </li>
+              <li title="IAccounts" id="item-IAccounts" class="nav-item class public" onclick="goToLocation('IAccounts.html');">
+                <a tabindex="1" href="javascript:void(0)">IAccounts</a>
+              </li>
+              <li title="Opportunities" id="item-Opportunities" class="nav-item class public" onclick="goToLocation('Opportunities.html');">
+                <a tabindex="1" href="javascript:void(0)">Opportunities</a>
+              </li>
+            </ul>
+          </details>
+          <details id="Miscellaneous" class="group-name">
+            <summary id="header-Miscellaneous" class="nav-header">
+              <span>Miscellaneous</span>
+            </summary>
+            <ul>
+              <!-- menu items -->
+              <li title="AccountsSelector" id="item-AccountsSelector" class="nav-item class public" onclick="goToLocation('AccountsSelector.html');">
+                <a tabindex="1" href="javascript:void(0)">AccountsSelector</a>
+              </li>
+              <li title="Application" id="item-Application" class="nav-item class public" onclick="goToLocation('Application.html');">
+                <a tabindex="1" href="javascript:void(0)">Application</a>
+              </li>
+              <li title="ContactsSelector" id="item-ContactsSelector" class="nav-item class public" onclick="goToLocation('ContactsSelector.html');">
+                <a tabindex="1" href="javascript:void(0)">ContactsSelector</a>
+              </li>
+              <li title="IAccountsSelector" id="item-IAccountsSelector" class="nav-item class public" onclick="goToLocation('IAccountsSelector.html');">
+                <a tabindex="1" href="javascript:void(0)">IAccountsSelector</a>
+              </li>
+              <li title="IContactsSelector" id="item-IContactsSelector" class="nav-item class public" onclick="goToLocation('IContactsSelector.html');">
+                <a tabindex="1" href="javascript:void(0)">IContactsSelector</a>
+              </li>
+              <li title="IOpportunities" id="item-IOpportunities" class="nav-item class public" onclick="goToLocation('IOpportunities.html');">
+                <a tabindex="1" href="javascript:void(0)">IOpportunities</a>
+              </li>
+              <li title="OpportunitiesTriggerTest" id="item-OpportunitiesTriggerTest" class="nav-item class private" onclick="goToLocation('OpportunitiesTriggerTest.html');">
+                <a tabindex="1" href="javascript:void(0)">OpportunitiesTriggerTest</a>
+              </li>
+            </ul>
+          </details>
+          <details id="Service" class="group-name">
+            <summary id="header-Service" class="nav-header">
+              <span>Service</span>
+            </summary>
+            <ul>
+              <!-- menu items -->
+              <li title="AccountsServiceImpl" id="item-AccountsServiceImpl" class="nav-item class public" onclick="goToLocation('AccountsServiceImpl.html');">
+                <a tabindex="1" href="javascript:void(0)">AccountsServiceImpl</a>
+              </li>
+            </ul>
+          </details>
+          <details id="Test" class="group-name">
+            <summary id="header-Test" class="nav-header">
+              <span>Test</span>
+            </summary>
+            <ul>
+              <!-- menu items -->
+              <li title="AccountsTriggerHandlerTest" id="item-AccountsTriggerHandlerTest" class="nav-item class private" onclick="goToLocation('AccountsTriggerHandlerTest.html');">
+                <a tabindex="1" href="javascript:void(0)">AccountsTriggerHandlerTest</a>
+              </li>
+            </ul>
+          </details>
+          <details id="Trigger" class="group-name">
+            <summary id="header-Trigger" class="nav-header">
+              <span>Trigger</span>
+            </summary>
+            <ul>
+              <!-- menu items -->
+              <li title="AccountsTriggerHandler" id="item-AccountsTriggerHandler" class="nav-item class public" onclick="goToLocation('AccountsTriggerHandler.html');">
+                <a tabindex="1" href="javascript:void(0)">AccountsTriggerHandler</a>
+              </li>
+              <li title="OpportunitiesTriggerHandler" id="item-OpportunitiesTriggerHandler" class="nav-item class public" onclick="goToLocation('OpportunitiesTriggerHandler.html');">
+                <a tabindex="1" href="javascript:void(0)">OpportunitiesTriggerHandler</a>
+              </li>
+            </ul>
+          </details>
+        </nav>
+      </div>
+    </div>
+    <table id="content">
+      <tr>
+        <td class="scoping-panel">
+          Show: <input type="checkbox" checked="true" id="cbx-all" onclick="toggleAllScopes(this.checked);" />
+          <label for="cbx-all">All</label>&nbsp;&nbsp;
+          <input type="checkbox" checked="true" id="cbx-global" onclick="toggleScope('global', this.checked);" />
+          <label for="cbx-global">
+            global
+          </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-public" onclick="toggleScope('public', this.checked);" />
+          <label for="cbx-public">
+            public
+          </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-protected" onclick="toggleScope('protected', this.checked);" />
+          <label for="cbx-protected">
+            protected
+          </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-private" onclick="toggleScope('private', this.checked);" />
+          <label for="cbx-private">
+            private
+          </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-testmethod" onclick="toggleScope('testmethod', this.checked);" />
+          <label for="cbx-testmethod">
+            testMethod
+          </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-webservice" onclick="toggleScope('webservice', this.checked);" />
+          <label for="cbx-webservice">
+            webService
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td class="doc-page">
+
+          <div class="section">
+
+            <h2 class="class-title top-level-type" id="AccountsTriggerHandler">
+              <span>AccountsTriggerHandler</span>
+            </h2>
+            <div class="class-container">
+
+              <div class="class-description">
+                Trigger Handler for the Account Object.
+              </div>
+              <div class="class-subtitle">
+                Signature
+              </div>
+
+              <div class="class-signature">
+                public with sharing class AccountsTriggerHandler extends fflib_SObjectDomain
+              </div>
+              <div class="class-subtitle">
+                Author
+              </div>
+              <div class="class-subtitle-description">
+                cdelfattore
+              </div>
+              <div class="class-subtitle">
+                Since
+              </div>
+              <div class="class-subtitle-description">
+                <li>2024-05-22</li>
+              </div>
+            </div>
+            <div class="subsection methods">
+              <h3 class="subsection-title methods">AccountsTriggerHandler Constructors</h3>
+              <div class="methods-container">
+                <ul class="methods-toc">
+                  <li class="method public">
+                    <a class="methods-toc__entry " href="#AccountsTriggerHandler.AccountsTriggerHandler">
+                      AccountsTriggerHandler (sObjectList)
+                    </a>
+
+                  </li>
+                </ul>
+                <div class="method public">
+                  <h4 class="method-title " id="AccountsTriggerHandler.AccountsTriggerHandler">
+                    <span>AccountsTriggerHandler(sObjectList)</span>
+                  </h4>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public AccountsTriggerHandler(List&lt;Account&gt; sObjectList)
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="subsection methods">
+              <h3 class="subsection-title methods">AccountsTriggerHandler Methods</h3>
+              <div class="methods-container">
+                <ul class="methods-toc">
+                  <li class="method private">
+                    <a class="methods-toc__entry " href="#AccountsTriggerHandler.getAccounts">
+                      getAccounts ()
+                    </a>
+
+                  </li>
+                  <li class="method public">
+                    <a class="methods-toc__entry " href="#AccountsTriggerHandler.onAfterInsert">
+                      onAfterInsert ()
+                    </a>
+
+                  </li>
+                  <li class="method public">
+                    <a class="methods-toc__entry " href="#AccountsTriggerHandler.onApplyDefaults">
+                      onApplyDefaults ()
+                    </a>
+
+                  </li>
+                  <li class="method public">
+                    <a class="methods-toc__entry " href="#AccountsTriggerHandler.onValidate">
+                      onValidate ()
+                    </a>
+
+                  </li>
+                  <li class="method public">
+                    <a class="methods-toc__entry " href="#AccountsTriggerHandler.onValidate_1">
+                      onValidate (existingRecords)
+                    </a>
+
+                  </li>
+                </ul>
+                <div class="method private">
+                  <h4 class="method-title " id="AccountsTriggerHandler.getAccounts">
+                    <span>getAccounts()</span>
+                  </h4>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    private List&lt;Account&gt; getAccounts()
+                  </div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="AccountsTriggerHandler.onAfterInsert">
+                    <span>onAfterInsert()</span>
+                  </h4>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public override void onAfterInsert()
+                  </div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="AccountsTriggerHandler.onApplyDefaults">
+                    <span>onApplyDefaults()</span>
+                  </h4>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public override void onApplyDefaults()
+                  </div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="AccountsTriggerHandler.onValidate">
+                    <span>onValidate()</span>
+                  </h4>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public override void onValidate()
+                  </div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="AccountsTriggerHandler.onValidate_1">
+                    <span>onValidate(existingRecords)</span>
+                  </h4>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public override void onValidate(Map&lt;Id,SObject&gt; existingRecords)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+
+            <h2 class="class-title " id="AccountsTriggerHandler.Constructor">
+              <span>AccountsTriggerHandler.Constructor</span>
+            </h2>
+            <div class="class-container">
+
+              <div class="class-subtitle">
+                Signature
+              </div>
+
+              <div class="class-signature">
+                public class Constructor implements fflib_SObjectDomain.IConstructable
+              </div>
+            </div>
+            <div class="subsection methods">
+              <h3 class="subsection-title methods">AccountsTriggerHandler.Constructor Methods</h3>
+              <div class="methods-container">
+                <ul class="methods-toc">
+                  <li class="method public">
+                    <a class="methods-toc__entry " href="#AccountsTriggerHandler.Constructor.construct">
+                      construct (sObjectList)
+                    </a>
+
+                  </li>
+                </ul>
+                <div class="method public">
+                  <h4 class="method-title " id="AccountsTriggerHandler.Constructor.construct">
+                    <span>construct(sObjectList)</span>
+                  </h4>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public fflib_SObjectDomain construct(List&lt;SObject&gt; sObjectList)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="footer">
+
+          <div>
+            <a href="https://github.com/no-stack-dub-sack/apexdox-vs-code" target="_blank" rel="noopener noreferrer">
+              Powered By ApexDox VS Code
+            </a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+</html>
