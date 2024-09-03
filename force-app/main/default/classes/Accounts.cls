@@ -1,7 +1,7 @@
 /**
  * @description Domain class for the Account object.
  * @author cdelfattore
- * @since 2024-05-2024
+ * @since 2024-05-20
  * @group Domain
  */
 public class Accounts extends fflib_SObjectDomain

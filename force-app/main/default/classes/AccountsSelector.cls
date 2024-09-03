@@ -2,6 +2,7 @@
  * @description Selector class for the Account object.
  * @author cdelfattore
  * @since 2024-06-03
+ * @group Selector
  */
 public with sharing class AccountsSelector extends fflib_SObjectSelector
 	implements IAccountsSelector
@@ -61,5 +62,4 @@ public with sharing class AccountsSelector extends fflib_SObjectSelector
 				.toSOQL()
 		);
 	}
-
 }

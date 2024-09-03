@@ -10,7 +10,7 @@ public class Application
 	public static final fflib_Application.UnitOfWorkFactory UnitOfWork = 
 		new fflib_Application.UnitOfWorkFactory(
 				new List<SObjectType> {
-					// Account.SObjectType,
+					Account.SObjectType//,
 					// Invoice__c.SObjectType,
 					// InvoiceLine__c.SObjectType,
 					// Opportunity.SObjectType,
@@ -21,7 +21,7 @@ public class Application
 					// DeveloperWorkItem__c.SObjectType,
 					// TrainingWorkItem__c.SObjectType,
 					// DesignWorkItem__c.SObjectType
-                });	
+                });
 
 	// Configure and create the ServiceFactory for this Application
 	public static final fflib_Application.ServiceFactory Service = 

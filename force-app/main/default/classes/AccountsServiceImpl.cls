@@ -25,4 +25,22 @@ public with sharing class AccountsServiceImpl implements IAccountsService
 
         return accountsWithContacts;
     }
+
+    public void parentMethod()
+    {
+        fflib_ISObjectUnitOfWork uow = Application.UnitOfWork.newInstance();
+        childMethodA(uow);
+        childMethodB(uow);
+        uow.commitWork();
+    }
+
+    public void childMethodA(fflib_ISObjectUnitOfWork uow)
+    {
+        ...
+    }
+
+    public void childMethodB(fflib_ISObjectUnitOfWork uow)
+    {
+        ...
+    }
 }
