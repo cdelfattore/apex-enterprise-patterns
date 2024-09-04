@@ -9,26 +9,17 @@ public with sharing class ContactsByAccountController
     @AuraEnabled
     public static List<Account> getAccountWithContactsList()
     {
-        return AccountsService.retrieveAndUpdateContactsByAccounts(new Set<Id>{UserInfo.getUserId()}, 10);
+        return AccountsService.retrieveContactsByAccount(new Set<Id>{UserInfo.getUserId()}, 10);
     }
 
     /**
-     * @description Return the last ten accounts that were modified by the current logged in user.
-     * @return  `List<Account>`
+     * @description 
+     * @param accountIds 
+     * @param description 
      */
-    // @AuraEnabled
-    // public static List<Account> getAccountWithContactsList()
-    // {
-    //     List<Account> accountsWithContacts = AccountsSelector.newInstance()
-    //         .selectByLastModifiedIdWithContacts(new Set<Id> { UserInfo.getUserId() }, 10);
-
-    //     for (Account account : accountsWithContacts)
-    //     {
-    //         for (Contact contact : account.Contacts)
-    //         {
-    //             contact.FirstName = Account.Name + ' ' + contact.FirstName;
-    //         }
-    //     }
-    //     return accountsWithContacts;
-    // }
+    @AuraEnabled
+    public static void updateDesciptionAndContactCount(List<String> accountIdList, String description)
+    {        
+        AccountsService.updateAccountDescriptionsAndContactCount(accountIdList, description);
+    }
 }

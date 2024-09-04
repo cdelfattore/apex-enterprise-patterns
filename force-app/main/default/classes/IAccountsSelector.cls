@@ -6,5 +6,6 @@
 public interface IAccountsSelector
 {
     List<Account> selectById(Set<Id> idSet);
+    List<Account> selectByIdWithContacts(Set<Id> accountIds);
     List<Account> selectByLastModifiedIdWithContacts(Set<Id> userIds, Integer recordAmount);
 }

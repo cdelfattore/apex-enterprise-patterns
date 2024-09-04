@@ -2,7 +2,6 @@
  * Trigger Handler for the Account Object.
  * @author cdelfattore
  * @since 2024-05-22
- * 
  * @group Trigger
  */
 public with sharing class AccountsTriggerHandler extends fflib_SObjectDomain
