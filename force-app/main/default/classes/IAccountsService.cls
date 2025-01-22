@@ -1,7 +1,7 @@
 /**
  * @description Service interface for the Account object.
- * @author 
- * @since 
+ * @author cdelfattore 
+ * @since 2024-08-26 
  * @group Service
  */
 public interface IAccountsService 
