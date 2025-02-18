@@ -7,6 +7,7 @@
     // }
     
 // }
+Schema.SObjectType.g
 System.debug(Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName());
 // System.debug(Limits.getHeapSize());
 // Integer startTime = Limits.getCpuTime();
