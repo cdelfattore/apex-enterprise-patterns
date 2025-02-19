@@ -14,12 +14,12 @@
 
 System.debug(Limits.getHeapSize());
 Integer startTime = Limits.getCpuTime();
-for (Integer i = 0; i < 6000; i++)
+for (Integer i = 0; i < 8000; i++)
 {
     RecordTypes.getInstance().getRecordTypeId('Account', 'Person');
     RecordTypes.getInstance().getRecordTypeId('Account', 'Business');
-    // RecordTypes.getInstance().getRecordTypeId(Schema.SObjectType.Account, 'Person');
-    // RecordTypes.getInstance().getRecordTypeId(Schema.SObjectType.Account, 'Business');
+    RecordTypes.getInstance().getRecordTypeId('Contact', 'Employee');
+    RecordTypes.getInstance().getRecordTypeId('Customer', 'Employee');
 }
 
 Integer stopTime = Limits.getCpuTime();
