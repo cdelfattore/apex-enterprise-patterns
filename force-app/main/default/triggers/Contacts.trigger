@@ -7,9 +7,11 @@
  */
 trigger Contacts on Contact (after insert, after update, after delete, after undelete)
 {
+    Map<Id, Integer> accountIdContactCount = new Map<Id, Integer>();
+
     if (Trigger.isAfter && (Trigger.isInsert || Trigger.isUndelete))
     {
-        Map<Id, Integer> accountIdContactCount = new Map<Id, Integer>();
+        
         for (Contact con : Trigger.new)
         {
             if (!accountIdContactCount.containsKey(con.AccountId))
@@ -21,23 +23,9 @@ trigger Contacts on Contact (after insert, after update, after delete, after und
                 accountIdContactCount.put(con.AccountId, accountIdContactCount.get(con.AccountId) + 1);
             }
         }
-
-        List<Account> accountsToUpdate = new List<Account>();
-        for (Account acc : [SELECT Id, Count__c FROM Account WHERE Id IN :accountIdContactCount.keySet()])
-        {
-            acc.Count__c += accountIdContactCount.get(acc.Id);
-            accountsToUpdate.add(acc);
-        }
-
-        if (!accountsToUpdate.isEmpty())
-        {
-            update accountsToUpdate;
-        }
     }
     else if (Trigger.isAfter && Trigger.isDelete)
     {
-
-        Map<Id, Integer> accountIdContactCount = new Map<Id, Integer>();
         for (Contact con : Trigger.old)
         {
             if (!accountIdContactCount.containsKey(con.AccountId))
@@ -49,28 +37,22 @@ trigger Contacts on Contact (after insert, after update, after delete, after und
                 accountIdContactCount.put(con.AccountId, accountIdContactCount.get(con.AccountId) - 1);
             }
         }
-
-        List<Account> accountsToUpdate = new List<Account>();
-        for (Account acc : [SELECT Id, Count__c FROM Account WHERE Id IN :accountIdContactCount.keySet()])
-        {
-            acc.Count__c += accountIdContactCount.get(acc.Id);
-            accountsToUpdate.add(acc);
-        }
-
-        if (!accountsToUpdate.isEmpty())
-        {
-            update accountsToUpdate;
-        }
     }
     else if (Trigger.isAfter && Trigger.isUpdate)
     {
-
-        Map<Id, Integer> accountIdContactCount = new Map<Id, Integer>();
-
         for (Contact con : Trigger.new)
         {
             if (Trigger.oldMap.get(con.Id).AccountId != con.AccountId)
             {
+                if (!accountIdContactCount.containsKey(Trigger.oldMap.get(con.Id).AccountId))
+                {
+                    accountIdContactCount.put(Trigger.oldMap.get(con.Id).AccountId, -1);
+                }
+                else
+                {
+                    accountIdContactCount.put(Trigger.oldMap.get(con.Id).AccountId, accountIdContactCount.get(Trigger.oldMap.get(con.Id).AccountId) - 1);    
+                }
+
                 if (!accountIdContactCount.containsKey(con.AccountId))
                 {
                     accountIdContactCount.put(con.AccountId, 1);
@@ -79,28 +61,21 @@ trigger Contacts on Contact (after insert, after update, after delete, after und
                 {
                     accountIdContactCount.put(con.AccountId, accountIdContactCount.get(con.AccountId) + 1);
                 }
-
-                if (!accountIdContactCount.containsKey(Trigger.oldMap.get(con.Id).AccountId))
-                {
-                    accountIdContactCount.put(Trigger.oldMap.get(con.Id).AccountId, -1);
-                }
-                else
-                {
-                    accountIdContactCount.put(Trigger.oldMap.get(con.Id).AccountId, accountIdContactCount.get(con.AccountId) - 1);    
-                }
             }
         }
+    }
 
+    if (!accountIdContactCount.isEmpty())
+    {
         List<Account> accountsToUpdate = new List<Account>();
         for (Account acc : [SELECT Id, Count__c FROM Account WHERE Id IN :accountIdContactCount.keySet()])
         {
             acc.Count__c += accountIdContactCount.get(acc.Id);
             accountsToUpdate.add(acc);
         }
-
+    
         if (!accountsToUpdate.isEmpty())
         {
-            System.debug('Update Account');
             update accountsToUpdate;
         }
     }

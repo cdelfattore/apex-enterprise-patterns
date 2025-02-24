@@ -68,15 +68,16 @@ private class ContactsTriggerTest
         Test.startTest();
 
         contactList.get(0).AccountId = accountB.Id;
-        update contactList.get(0);
+        contactList.get(2).AccountId = accountB.Id;
+        update new List<Contact>{contactList.get(0), contactList.get(2)};
 
         Test.stopTest();
 
         Account accountPostInsert = [SELECT Id, Count__c FROM Account WHERE Id = :account.Id LIMIT 1];
         Account accountBPostInsert = [SELECT Id, Count__c FROM Account WHERE Id = :accountB.Id LIMIT 1];
 
-        System.assertEquals(contactList.size() - 1, accountPostInsert.Count__c);
-        System.assertEquals(1, accountBPostInsert.Count__c);
+        System.assertEquals(3, accountPostInsert.Count__c);
+        System.assertEquals(2, accountBPostInsert.Count__c);
 
     }
 
