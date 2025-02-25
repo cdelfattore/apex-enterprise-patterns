@@ -23,25 +23,58 @@
 private class ContactsTriggerTest
 {
 
+    private static Integer numberOfAccounts = 500;
+    private static Integer numberOfContactsPerAccount = 5;
+
+    @TestSetup
+    private static void setup()
+    {
+        List<Account> accounts = new List<Account>();
+        for (Integer i = 0; i < numberOfAccounts; i++)
+        {
+            accounts.add(TestDataFactory.createAccount(false, 'TestSetup' + i));
+        }
+        insert accounts;
+
+        // Integer numberOfContactsPerAccount = 9;
+        // List<Contact> contactList = new List<Contact>();
+        // for (Account account : accounts)
+        // {
+        //     for (Integer i = 0; i < numberOfContactsPerAccount; i++)
+        //     {
+        //         contactList.add(TestDataFactory.createContact(false, account.Id, account.Name + 'ContactSetup' + i));
+        //     }
+        // }
+        // insert contactList;
+    }
+
     @IsTest
     private static void insertContact()
     {
-        Account account = TestDataFactory.createAccount(true);
 
         Test.startTest();
 
         List<Contact> contactList = new List<Contact>();
-        for (Integer i = 0; i < 5; i++)
+        for (Account account : [SELECT Id, Name FROM Account])
         {
-            contactList.add(TestDataFactory.createContact(false, account.Id, 'Test' + i));
+            for (Integer i = 0; i < numberOfContactsPerAccount; i++)
+            {
+                contactList.add(TestDataFactory.createContact(false, account.Id, account.Name + 'Contact' + i));
+            }
         }
         insert contactList;
 
         Test.stopTest();
 
-        Account accountPostInsert = [SELECT Id, Count__c FROM Account WHERE Id = :account.Id LIMIT 1];
+        // System.debug([SELECT Id, Count__c FROM Account]);
+        for (Account account : [SELECT Id, Count__c FROM Account])
+        {
+            System.assertEquals(numberOfContactsPerAccount, account.Count__c);
+        }
 
-        System.assertEquals(contactList.size(), accountPostInsert.Count__c);        
+        // Account accountPostInsert = [SELECT Id, Count__c FROM Account WHERE Id = :accounts.get(0).Id LIMIT 1];
+
+        // System.assertEquals(contactList.size(), accountPostInsert.Count__c);      
 
     }
 
@@ -69,7 +102,7 @@ private class ContactsTriggerTest
 
         contactList.get(0).AccountId = accountB.Id;
         contactList.get(2).AccountId = accountB.Id;
-        update new List<Contact>{contactList.get(0), contactList.get(2)};
+        update contactList;
 
         Test.stopTest();
 
@@ -95,7 +128,8 @@ private class ContactsTriggerTest
 
         Test.startTest();
 
-        delete new List<Contact>{contactList.get(0), contactList.get(1)};
+        List<Contact> contactsToDelete = new List<Contact>{contactList.get(0), contactList.get(1)};
+        delete contactsToDelete;
 
         Test.stopTest();
 

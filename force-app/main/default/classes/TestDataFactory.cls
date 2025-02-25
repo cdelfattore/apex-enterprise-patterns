@@ -3,8 +3,13 @@ public class TestDataFactory
 {
     public static Account createAccount(Boolean insertAccount)
     {
+        return createAccount(insertAccount, 'Test');
+    }
+
+    public static Account createAccount(Boolean insertAccount, String name)
+    {
         Account account = new Account(
-            Name = 'Test'
+            Name = name
         );
 
         if (insertAccount)

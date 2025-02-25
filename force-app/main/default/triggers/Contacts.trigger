@@ -76,6 +76,9 @@ trigger Contacts on Contact (after insert, after update, after delete, after und
     
         if (!accountsToUpdate.isEmpty())
         {
+            System.debug(Limits.getDmlRows());
+            System.debug('update accounts');
+            System.debug(accountsToUpdate.size());
             update accountsToUpdate;
         }
     }
