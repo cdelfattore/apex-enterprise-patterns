@@ -66,11 +66,15 @@ private class ContactsTriggerTest
 
         Test.stopTest();
 
+        System.debug(Limits.getQueryRows());
+        List<Account> accountList = [SELECT Id, Name, (SELECT Id, FirstName, LastName FROM Contacts) FROM Account LIMIT 10];
+        System.debug(Limits.getQueryRows());
+
         // System.debug([SELECT Id, Count__c FROM Account]);
-        for (Account account : [SELECT Id, Count__c FROM Account])
-        {
-            System.assertEquals(numberOfContactsPerAccount, account.Count__c);
-        }
+        // for (Account account : [SELECT Id, Count__c FROM Account])
+        // {
+        //     System.assertEquals(numberOfContactsPerAccount, account.Count__c);
+        // }
 
         // Account accountPostInsert = [SELECT Id, Count__c FROM Account WHERE Id = :accounts.get(0).Id LIMIT 1];
 

@@ -1,3 +1,5 @@
+System.debug(Account.SObjectType.getDescribe().getKeyPrefix());
+System.debug(fflib_IDGenerator.generate(Account.SObjectType));
 //System.debug(ContactsByAccountController.getAccountWithContactsList());
 //System.debug(Contact.SObjectType.getDescribe().getChildRelationships());
 // for (Schema.ChildRelationship cr : Account.SObjectType.getDescribe().getChildRelationships())
