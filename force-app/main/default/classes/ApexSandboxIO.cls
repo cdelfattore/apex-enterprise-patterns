@@ -2,9 +2,13 @@ public with sharing class ApexSandboxIO
 {
     public static Boolean isPrime(Integer num)
     {
-        for (Integer i = 2; i <= Math.ceil(Math.sqrt(num)); i++)
+        if (num <= 1)
         {
-            System.debug(i);
+            return false;
+        }
+
+        for (Integer i = 2; i <= Math.sqrt(num); i++)
+        {
             if (Math.mod(num, i) == 0)
             {
                 return false;
@@ -15,13 +19,14 @@ public with sharing class ApexSandboxIO
 
     public static Integer nextPrime(Integer num)
     {
-        Integer result;
-        Boolean con = true;
-        while (con)
+        Integer result = num;
+        if (isPrime(result + 1))
         {
-            
+            return result + 1;
         }
-
-        return result;
+        else
+        {
+            return nextPrime(result + 1);
+        }
     }
 }

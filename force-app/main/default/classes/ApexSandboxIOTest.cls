@@ -34,4 +34,13 @@ private class ApexSandboxIOTest
         System.assertEquals(true, ApexSandboxIO.isPrime(7));
         System.assertEquals(true, ApexSandboxIO.isPrime(37));
     }
+
+    @isTest
+    static void nextPrime()
+    {
+        System.assertEquals(3, ApexSandboxIO.nextPrime(2));
+        System.assertEquals(7, ApexSandboxIO.nextPrime(5));
+        System.assertEquals(11, ApexSandboxIO.nextPrime(7));
+        System.assertEquals(37, ApexSandboxIO.nextPrime(31));
+    }
 }
