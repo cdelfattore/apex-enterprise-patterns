@@ -1,21 +1,13 @@
 public with sharing class CSVPageController
 {
-    // public List<Account> accounts {get;set;}
+    
+    public String csvAccount {get; private set;}
 
-    public CSVPageController()
+    public CSVPageController(ApexPages.StandardController controller)
     {
-        // accounts = [SELECT Id, Name FROM Account LIMIT 10];
+        Id recordId = ApexPages.currentPage().getParameters().get('id');
+        CSVPageObject account = new CSVPageObject('Account', recordId);
+        this.csvAccount = account.getObjCSV();
     }
 
-    public String getAccounts()
-    {
-        List<String> result = new List<String>();
-        result.add('Id,Name');
-        for (Account account : [SELECt Id, Name FROM Account LIMIT 10])
-        {
-            result.add(account.Id + ',' + account.Name.escapeCsv());
-        }
-        System.debug(result);
-        return String.join(result, '\n');
-    }
 }
