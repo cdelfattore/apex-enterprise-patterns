@@ -1,2 +1,2 @@
 <!-- <apex:page standardController="Account" extensions="CSVPageController" contentType="text/csv" showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false">{!accounts}</apex:page> -->
-<apex:page standardController="Account" extensions="CSVPageController" contentType="text/csv" showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false">{!csvAccount}</apex:page>
+<apex:page standardController="Account" extensions="CSVPageController" contentType="text/csv" showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false">{!csvObject}</apex:page>

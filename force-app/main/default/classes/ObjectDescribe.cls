@@ -14,4 +14,9 @@ public class ObjectDescribe
         }
         return fields;
     }
+
+    public static String getObjectName(Id recordId)
+    {
+        return recordId.getSobjectType().getDescribe().getName();
+    }
 }

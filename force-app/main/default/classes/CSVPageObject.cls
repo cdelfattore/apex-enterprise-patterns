@@ -2,10 +2,11 @@ public class CSVPageObject
 {
     private String objCSV;
 
-    public CSVPageObject(String objectName, Id recordId)
+    public CSVPageObject(Id recordId)
     {
+        String objectName = ObjectDescribe.getObjectName(recordId);
         List<String> fields = ObjectDescribe.getFieldsForObject(objectName);
-        
+
         String query = 'SELECT ' + String.join(fields, ',') + ' FROM ' + objectName + ' WHERE Id = :recordId';
         SObject obj = Database.query(query);
 
