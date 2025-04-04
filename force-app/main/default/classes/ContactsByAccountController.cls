@@ -9,7 +9,9 @@ public with sharing class ContactsByAccountController
     @AuraEnabled
     public static List<Account> getAccountWithContactsList()
     {
-        return AccountsService.retrieveContactsByAccount(new Set<Id>{UserInfo.getUserId()}, 10);
+        List<Account> accounts = AccountsService.retrieveContactsByAccount(new Set<Id>{UserInfo.getUserId()}, 10);
+        System.debug(accounts);
+        return accounts;
     }
 
     /**

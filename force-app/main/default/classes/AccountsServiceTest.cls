@@ -12,8 +12,7 @@ private class AccountsServiceTest
         List<Account> accounts = new List<Account>{
             new Account(
                 Id = fflib_IDGenerator.generate(Account.SObjectType),
-                Name = 'Test Account'//,
-                // LastModifiedById = lastModUserId
+                Name = 'Test Account'
             )
         };
         Set<Id> userId = new Set<Id>{lastModUserId};
