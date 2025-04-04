@@ -32,6 +32,7 @@ private class ContactsByAccountControllerTest {
         //Note the Mocking needs to be set on the key used in the Applcation class for the Service class.
         //For Example, IAccountsService.class => AccountsServiceImpl.class
         //Meaning we need to verify and set the Mock on IAccountsService.
+        //Page 544 of Apex Enterprise Patterns by Andrew Fawcett.
         IAccountsService mockAccountService = (IAccountsService) mocks.mock(IAccountsService.class);
         Application.Service.setMock(IAccountsService.class, mockAccountService);
 
