@@ -29,6 +29,9 @@ private class ContactsByAccountControllerTest {
         List<String> accountIdList = new List<String>{fflib_IDGenerator.generate(Account.SObjectType)};
         String description = 'Test Description';
 
+        //Note the Mocking needs to be set on the key used in the Applcation class for the Service class.
+        //For Example, IAccountsService.class => AccountsServiceImpl.class
+        //Meaning we need to verify and set the Mock on IAccountsService.
         IAccountsService mockAccountService = (IAccountsService) mocks.mock(IAccountsService.class);
         Application.Service.setMock(IAccountsService.class, mockAccountService);
 
