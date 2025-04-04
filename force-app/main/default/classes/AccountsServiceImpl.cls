@@ -12,7 +12,9 @@ public with sharing class AccountsServiceImpl implements IAccountsService
      */
     public List<Account> retrieveContactsByAccount(Set<Id> userIds, Integer amount)
     {
-        return AccountsSelector.newInstance().selectByLastModifiedIdWithContacts(userIds, amount);
+        List<Account> results = AccountsSelector.newInstance().selectByLastModifiedIdWithContacts(userIds, amount);
+        System.debug(results);
+        return results;
     }
 
     public void updateAccountDescriptionsAndContactCount(List<String> accountIdList, String description)

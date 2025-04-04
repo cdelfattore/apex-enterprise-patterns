@@ -68,11 +68,12 @@ public with sharing class AccountsSelector extends fflib_SObjectSelector
 	 */
 	public List<Account> selectByLastModifiedIdWithContacts(Set<Id> userIds, Integer recordAmount)
 	{
-		System.debug(createContactsByAccountQueryFactory()
-		.setCondition('LastModifiedById IN :userIds')
-		.setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.DESCENDING)
-		.setLimit(recordAmount)
-		.toSOQL());
+		// System.debug(createContactsByAccountQueryFactory()
+		// .setCondition('LastModifiedById IN :userIds')
+		// .setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.DESCENDING)
+		// .setLimit(recordAmount)
+		// .toSOQL());
+		System.debug(userIds);
 		return (List<Account>) Database.query(
 			createContactsByAccountQueryFactory()
 				.setCondition('LastModifiedById IN :userIds')
